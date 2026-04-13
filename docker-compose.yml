@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  master:
+    build: .
+    container_name: master
+    command: python master/master.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./master:/app/master
+      - ./dataset:/app/dataset
+    networks:
+      hadoop_net:
+        ipv4_address: 172.20.0.2
+    depends_on:
+      - worker1
+      - worker2
+      - worker3
+
+  worker1:
+    build: .
+    container_name: worker1
+    command: python worker/worker.py
+    networks:
+      hadoop_net:
+        ipv4_address: 172.20.0.11
+    volumes:
+      - ./worker:/app/worker
+
+  worker2:
+    build: .
+    container_name: worker2
+    command: python worker/worker.py
+    networks:
+      hadoop_net:
+        ipv4_address: 172.20.0.12
+    volumes:
+      - ./worker:/app/worker
+
+  worker3:
+    build: .
+    container_name: worker3
+    command: python worker/worker.py
+    networks:
+      hadoop_net:
+        ipv4_address: 172.20.0.13
+    volumes:
+      - ./worker:/app/worker
+
+networks:
+  hadoop_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
