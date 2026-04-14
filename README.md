@@ -60,12 +60,8 @@ hadoop-sim/
 3.  Verify installation: `docker --version`
 
 #### Setup
-1.  Clone this repository:
-    ```bash
-    git clone https://github.com/YOUR_USERNAME/hadoop-sim.git
-    cd hadoop-sim
-    ```
-2.  Download the dataset into the `dataset` folder:
+
+    Download the dataset into the `dataset` folder:
     ```bash
     curl -o dataset/big.txt https://norvig.com/big.txt
     ```
