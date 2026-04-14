@@ -141,4 +141,4 @@ Full prompt log is available in `/REPORT.pdf`
 - [x] Practice AI-assisted development (vibe coding)
 
 ---
-**Author:** [M. Saim] | **Course:** Big Data Analytics
+**Author:** M. Saim | **Course:** Big Data Analytics
